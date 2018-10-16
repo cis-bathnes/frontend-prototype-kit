@@ -1,0 +1,435 @@
+// Path to assets for use with the file-url function
+// in the govuk frontend toolkit's url-helpers partial
+$path: "/public/images/";
+
+// Import GOV.UK elements from /govuk-modules/, this will import the frontend toolkit and some base styles.
+// Take a look in /govuk-modules/_govuk-elements.scss to see which files are imported.
+@import 'govuk-elements';
+
+// Take a look at in app/assets/sass/patterns/ to see which files are imported.
+@import 'patterns/check-your-answers';
+@import 'patterns/task-list';
+
+
+@import 'core/colours';
+@import 'core/accessibility';
+@import 'core/forms';
+
+
+// Import B&NES components
+
+@import 'components/aside';
+@import 'components/breadcrumb';
+@import 'components/breakout-box';
+@import 'components/footer';
+@import 'components/header';
+@import 'components/navigation';
+@import 'components/sections';
+@import 'components/task-list';
+@import 'components/social-links-callout';
+
+// Related items
+// (These styles will be moved to GOV.UK elements, duplicating here for now.)
+.govuk-related-items {
+  margin-top: $gutter;
+  border-top: 10px solid $govuk-blue;
+  padding-top: 5px;
+
+  .heading-medium {
+    margin-top: 0.3em;
+    margin-bottom: 0.5em;
+  }
+
+  li {
+    margin-bottom: 10px;
+    list-style-type: none;
+  }
+}
+
+// Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+
+
+html,
+body,
+button,
+input,
+table,
+td,
+th {
+  font-family: $toolkit-font-stack;
+}
+
+// basic styles for HTML5 and other elements
+html,
+body,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+article,
+aside,
+footer,
+header,
+hgroup,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+// HTML5 display definition
+main {
+  display: block;
+}
+
+// 1. Corrects text resizing oddly in IE6/7 when body font-size is set using em units
+//    http://clagnut.com/blog/348/#c790
+//    note - font-size reduced to 62.5% to allow simple rem/px font-sizing and fallback
+//    http://snook.ca/archives/html_and_css/font-size-with-rem
+// 2. Keeps page centred in all browsers regardless of content height
+// 3. Removes Android and iOS tap highlight color to prevent entire container being highlighted
+//    www.yuiblog.com/blog/2010/10/01/quick-tip-customizing-the-mobile-safari-tap-highlight-color/
+// 4. Prevents iOS text size adjust after orientation change, without disabling user zoom.
+// 5. Force the scrollbar to always display in IE10/11
+
+html {
+  font-size: 62.5%; // 1
+  overflow-y: scroll; // 2
+  // Allow RGBA here, this line has been copied from govuk_template
+  // scss-lint:disable ColorVariable
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // 3
+  -webkit-text-size-adjust: 100%; // 4
+  -ms-text-size-adjust: 100%; // 4
+  -ms-overflow-style: scrollbar; // 5
+  background-color: $white;
+}
+
+// 1. Font-size increased to compensate for change to html element font-size in
+//    order to support beta typography which was set in ems
+//    (62.5% * 160% = 100%)
+// 2. Addresses margins handled incorrectly in IE6/7
+
+body {
+  font-size: 160%; // 1
+  margin: 0; // 2
+
+  background: $white;
+  color: $text-colour;
+  line-height: 1.5;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ol,
+ul,
+nav ol,
+nav ul {
+  list-style: inherit;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+}
+
+b,
+strong {
+  font-weight: 600;
+}
+
+img {
+  border: 0;
+}
+
+@include ie-lte(7) {
+  button {
+    overflow: visible;
+  }
+}
+
+abbr[title] {
+  cursor: help;
+}
+
+// Link styles
+a:link {
+  color: $link-colour;
+}
+
+a:visited {
+  color: $link-visited-colour;
+}
+
+a:hover {
+  color: $link-hover-colour;
+}
+
+a:active {
+  color: $link-active-colour;
+}
+
+// Set focus styles
+a {
+  // Allow RGBA here, this line has been copied from govuk_template
+  // scss-lint:disable ColorVariable
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3);
+}
+
+a:focus {
+  background-color: $focus-colour;
+  outline: 3px solid $focus-colour;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+  outline: 3px solid $focus-colour;
+  outline-offset: 0;
+}
+
+
+// Cookie styles
+
+div#global-cookie-message {
+    background: #00b259;
+    padding: 1em;
+    color: #fff;
+
+
+p{
+  max-width: 960px;
+  margin:0 auto;
+}
+
+
+
+.navigation-primary-list{
+
+&:link{
+  color:red;
+}
+
+   a {
+      display: block;
+      color: rgb(11, 12, 12);
+      font-size: 16px;
+      padding: 0.5em 0px;
+      text-decoration: none;
+
+      &:hover, &:active{
+          color: black;
+        }
+  }
+}
+
+p, a{
+    color: #fff;
+}
+}
+
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal header */
+.modal-header {
+    background: #4a4a4a;
+    color: #fff;
+    padding: 20px;
+}
+
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 0;
+    border: 1px solid #888;
+    width: 750px; /* Could be more or less, depending on screen size */
+}
+
+.modal-body{
+  padding:20px;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.navigation-primary {
+  position: relative;
+  overflow: hidden;
+  body.js-enabled & {
+    transition: max-height ease-out 0.35s;
+    max-height: 0;
+  }
+  border-top: 5px solid #fff;
+  &--active {
+    border-top: 5px solid $bathnes-primary;
+    body.js-enabled & {
+      transition: max-height ease-out 0.5s;
+      max-height: 1000px;
+    }
+  }
+  @include media(desktop) {
+      display: block;
+      border-top: 1px solid $border-colour;
+      body.js-enabled & {
+          max-height: 100%;
+      }
+  }
+}
+
+.navigation-primary-list {
+  overflow: hidden;
+  list-style: none;
+  max-width: $site-width;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  @include media($site-width) {
+      padding-left: 0;
+      padding-right: 0;
+  }
+}
+
+.navigation-primary-list__item {
+  display: block;
+  a {
+      display: block;
+      padding: 0.5em 0;
+      text-decoration: none;
+      color: $text-colour;
+      font-size: 16px;
+      &:hover, &:active {
+          text-decoration: underline;
+      }
+  }
+  @include media(desktop) {
+      display: inline-block;
+      a {
+          padding: 0.75em 1em;
+      }
+      &:first-child a {
+          padding-left: 0;
+      }
+  }
+}
+
+.navigation-trigger {
+  position: absolute;
+  top: 1.65em;
+  right: 15px;
+  text-decoration: none;
+  color: $text-colour;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 5px 10px;
+  background-color: #f4f4f4;
+  &:hover, &:active {
+      background-color: #eee;
+  }
+  &:after {
+      display: inline-block;
+      font-size: 8px;
+      height: 8px;
+      padding-left: 5px;
+      vertical-align: middle;
+      content: " \25BC";
+  }
+  @include media(desktop) {
+      display: none;
+  }
+}
+
+
+// Details
+// ==========================================================================
+
+details {
+  display: block;
+  clear: both;
+
+  summary {
+    display: inline-block;
+    color: $govuk-blue;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: em(5);
+
+    &:hover {
+      color: $link-hover-colour;
+    }
+
+    &:focus {
+      outline: 3px solid $focus-colour;
+    }
+  }
+
+  // Underline only summary text (not the arrow)
+  .summary {
+    text-decoration: underline;
+  }
+
+  // Match fallback arrow spacing with -webkit default
+  .arrow {
+    margin-right: .35em;
+    font-style: normal;
+  }
+
+}
+
+// Phase banners and tags
+// ==========================================================================
+
+.phase-banner {
+  @include phase-banner();
+}
+
+// These classnames are deprecated,
+// they will be removed in a future version of GOV.UK elements
+.phase-banner-alpha,
+.phase-banner-beta {
+  @include phase-banner();
+}
+
+.phase-tag {
+  @include phase-tag();
+}
+
+
+
+
